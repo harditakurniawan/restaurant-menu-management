@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  postgresqldb:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    container_name: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: nest-pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=pgadmin4
+    ports:
+      - '5050:80'
+    depends_on:
+      - postgresqldb
+
+  app:
+    container_name: blue-print-nestjs-postgresql
+    depends_on:
+      - postgresqldb
+      - pgadmin
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      # - MONGO_URI=mongodb://mongoDb:27017/hk-smarthome?replicaSet=rs0&directConnection=true
+      # - DB_USERNAME=${DB_USERNAME}
+      # - DB_PASSWORD=${DB_PASSWORD}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - JWT_PRIVATE_KEY=${JWT_PRIVATE_KEY}
+      - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
+      - JWT_EXPIRED_TOKEN=${JWT_EXPIRED_TOKEN}
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    restart: always
+    volumes:
+      - .:/app:delegated
+      - node_modules:/app/node_modules
+    command: [sh, -c, 'npm run start:dev']
+
+volumes:
+  pgdata:
+  node_modules:

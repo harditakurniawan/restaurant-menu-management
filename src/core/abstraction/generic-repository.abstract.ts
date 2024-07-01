@@ -1,23 +1,13 @@
 export abstract class IGenericRepository<T> {
-  abstract aggregation(pipeline, session?);
-  abstract create(item: object, session?): Promise<T>;
-  abstract createCollection();
-  abstract createIndex(payload: any);
-  abstract count(condition: object): Promise<number>;
-  abstract deleteMany(condition: object);
+  abstract count(payload: object): Promise<number>;
+  abstract create(payload: object): Promise<T>;
+  abstract deleteMany(payload: Array<any>);
   abstract deleteOne(condition: object);
-  abstract dropIndex(indexWillBeDroped: string);
-  abstract findOne(condition: object, optional?: object);
-  abstract findOneById(id: string, select?: Array<string>);
-  abstract findOneAndUpdate(condition: object, payload: object);
-  abstract findOneByIdAndUpdate(id: string, payload: object);
-  abstract findOneByIdAndDelete(id: string);
-  abstract getAll(condition?: object, populate?: any): Promise<T[]>;
-  abstract insertMany(payload: Array<object>, session?);
-  abstract isExist(condition: object);
-  abstract isIndexExist(indexName: string);
-  abstract listCollections();
-  abstract listIndexes();
-  abstract updateMany(condition: object, payload: object);
-  abstract updateOneOrCreate(condition: object, payload: object, option?: object);
+  abstract findOne(condition: object): Promise<T>;
+  abstract getAll(condition?: object): Promise<T[]>;
+  abstract isExist(condition?: object): Promise<boolean>;
+  abstract restoreSoftDelete(id: string | number): any;
+  abstract softDelete(id: string | number): any;
+  abstract update(id: string | number, payload: object);
+  abstract updateOrCreate(payload: Array<object>, overwrite: Array<string>);
 }

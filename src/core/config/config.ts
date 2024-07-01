@@ -9,9 +9,9 @@ import { AwsManagementFile, CloudinaryManagementFile, LocalManagementFile } from
 
 const configService = new ConfigService();
 
-const dbUri = process.env.DB_USERNAME !== '' && process.env.DB_PASSWORD !== ''
-  ? `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
-  : `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?replicaSet=rs0&directConnection=true`;
+// const dbUri = process.env.DB_USERNAME !== '' && process.env.DB_PASSWORD !== ''
+//   ? `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+//   : `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?replicaSet=rs0&directConnection=true`;
 
 export const AppConfig = {
   APP_FILESYSTEM_DRIVER : configService.get<string>('APP_FILESYSTEM_DRIVER') || FileDriver.LOCAL,
@@ -28,7 +28,7 @@ export const AppConfig = {
   DB_NAME               : configService.get<string>('DB_NAME'),
   DB_PASSWORD           : configService.get<string>('DB_PASSWORD') || undefined,
   DB_PORT               : +configService.get<string>('DB_PORT') || 27017,
-  DB_URI                : configService.get<string>('DB_URI') || dbUri,
+  // DB_URI                : configService.get<string>('DB_URI') || dbUri,
   DB_USERNAME           : configService.get<string>('DB_USERNAME') || undefined,
   JWT_ALGORITHM         : configService.get<string>('JWT_ALGORITHM') as jwt.Algorithm,
   JWT_EXPIRED_TOKEN     : configService.get<string>('JWT_EXPIRED_TOKEN'),
