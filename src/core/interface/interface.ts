@@ -1,12 +1,11 @@
 
-import { Role } from '@core-enum/role.enum';
 import { Request } from 'express';
 
 export interface IAuth {
-  _id         : string,
+  id          : number,
   email       : string,
-  roles       : Array<Role>,
-  permission? : Array<Role>,
+  role?       : Array<string>,
+  permission? : Array<string>,
 }
 
 export interface IFileMapper {

@@ -1,4 +1,3 @@
-import { Utils } from '../../utils/utils.service';
 import {
   CreateDateColumn,
   DeleteDateColumn,
@@ -9,8 +8,6 @@ import {
 
 @Entity()
 export abstract class Base {
-  protected _utils: Utils = new Utils();
-
   @PrimaryGeneratedColumn()
   id: number;
 

@@ -10,6 +10,7 @@ import { JwtService } from '@nestjs/jwt';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from '@core-guards/jwt-auth.guard';
 import { AllExceptionsFilter } from './core/exceptions/all-exception.filter';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { AllExceptionsFilter } from './core/exceptions/all-exception.filter';
     DataServicesModule,
     ScheduleModule.forRoot(),
     UtilsModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [

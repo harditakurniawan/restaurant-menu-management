@@ -5,6 +5,8 @@ import { MySQLDataService } from './mysql-data-service';
 import { AccessToken } from './entity/access-token.entity';
 import { User } from './entity/user.entity';
 import { IDataService } from '@core-abstraction/data-service.abstract';
+import { Role } from './entity/role.entity';
+import { Permission } from './entity/permission.entity';
 
 @Module({
   imports: [
@@ -12,12 +14,14 @@ import { IDataService } from '@core-abstraction/data-service.abstract';
      * Declare Entity
      */
     TypeOrmModule.forFeature([
-      AccessToken, 
+      AccessToken,
+      Permission,
+      Role,
       User,
     ]),
 
     /**
-     * Declare Connectivity of MySQL
+     * Declare Connectivity of PgSQL
      */
     TypeOrmModule.forRootAsync({ useFactory: async () => db_config }),
   ],

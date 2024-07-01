@@ -1,7 +1,7 @@
-import { BeforeInsert, Column, Entity } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { Base } from './base.entity';
-import { Role } from '../../core/enum/role.enum';
+import { Role } from './role.entity';
 
 @Entity()
 export class User extends Base {
@@ -17,15 +17,11 @@ export class User extends Base {
   @Column()
   password: string;
 
-  @Column({ type: 'enum', enum: Role, default: Role.USER })
-  role: Role;
-
-  @BeforeInsert()
-  hashingPassword = async () => {
-    this.password = await this._utils.hashing(this.password);
-  };
-
   comparePassword = (password: string): boolean => {
     return bcrypt.compareSync(password, this.password);
   };
+
+  @ManyToMany(() => Role, (role) => role.users)
+  @JoinTable({ name: 'user_role' })
+  roles: Role[];
 }
