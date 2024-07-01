@@ -5,6 +5,9 @@
 # ENV
 .env
 
+# Postgres
+pgdata
+
 # Logs
 logs
 *.log
