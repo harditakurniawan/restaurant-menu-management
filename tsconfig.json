@@ -16,6 +16,53 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@3rd-party/*": [
+        "./src/3rd-party/*"
+      ],
+      "@core-abstraction/*": [
+        "./src/core/abstraction/*"
+      ],
+      "@core-base-dto/*": [
+        "./src/core/base-dto/*"
+      ],
+      "@core-config/*": [
+        "./src/core/config/*"
+      ],
+      "@core-constraint/*": [
+        "./src/core/constraint/*"
+      ],
+      "@core-decorators/*": [
+        "./src/core/decorators/*"
+      ],
+      "@core-enum/*": [
+        "./src/core/enum/*"
+      ],
+      "@core-guards/*": [
+        "./src/core/guards/*"
+      ],
+      "@core-interceptors/*": [
+        "./src/core/interceptors/*"
+      ],
+      "@core-interface/*": [
+        "./src/core/interface/*"
+      ],
+      "@core-logging/*": [
+        "./src/core/logging/*"
+      ],
+      "@core-middleware/*": [
+        "./src/core/middleware/*"
+      ],
+      "@core-transformers/*": [
+        "./src/core/transformers/*"
+      ],
+      "@database/*": [
+        "./src/database/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+    }
   }
 }
