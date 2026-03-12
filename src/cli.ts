@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import { CommandModule, CommandService } from 'nestjs-command';
 import { SeederModule } from '@database/seeders/seeder.module';
