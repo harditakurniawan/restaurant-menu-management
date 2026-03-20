@@ -4,7 +4,7 @@ import { Request } from 'express';
 export interface IAuth {
   id          : number,
   email       : string,
-  role?       : Array<string>,
+  roles?       : Array<string>,
   permission? : Array<string>,
 }
 
@@ -51,4 +51,19 @@ export interface IResponse<T> {
     total       : number;
   };
   data: T;
+}
+
+interface Condition {
+  [key: string]: any;
+}
+
+interface Pagination {
+  order : { [key: string]: string }; // example = orders: { createdAt: 'DESC' }
+  take  : number;
+  skip  : number;
+}
+
+export interface IFilter {
+  condition : Condition;
+  pagination: Pagination;
 }

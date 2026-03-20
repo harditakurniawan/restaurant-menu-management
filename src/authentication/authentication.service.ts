@@ -55,9 +55,9 @@ export class AuthenticationService {
     public async generateToken(user: User): Promise<string> {
         try {
             const { id, email, roles } = user;
-            const role = roles.map(data => data.name);
+            const rolesNames = roles.map(data => data.name);
             const permission = roles.flatMap(role => role.permissions.map(permission => permission.name));
-            const auth  = { id, email, role, permission } as IAuth;
+            const auth  = { id, email, roles: rolesNames, permission } as IAuth;
             const token = this._jwtService.sign(auth);
 
             return token;
