@@ -5,6 +5,7 @@ import { PermissionSeeder } from './permission.seeder';
 import { RoleSeeder } from './role.seeder';
 import { RolePermissionSeeder } from './role-permission.seeder';
 import { AdminSeeder } from './admin.seeder';
+import { Utils } from '@utils/utils.service';
 
 @Module({
     imports: [
@@ -16,6 +17,7 @@ import { AdminSeeder } from './admin.seeder';
         RoleSeeder,
         RolePermissionSeeder,
         AdminSeeder,
+        Utils, // Utils should be the last provider to be initialized
     ],
 })
 export class SeederModule {}
