@@ -12,6 +12,14 @@ constructor(
 @Command({ command: 'create:role', describe: 'create a admin' })
 async create() {
     try {
+        const isRoleExist = await this.repositoryService.roles.count({});
+
+        if (isRoleExist > 0) {
+            console.log(`${RoleSeeder.name} already exist`);
+
+            return;
+        }
+
         const roles = [
             {
                 name    : Role.ADMIN, 

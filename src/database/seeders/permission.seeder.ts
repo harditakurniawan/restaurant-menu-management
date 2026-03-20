@@ -12,6 +12,14 @@ constructor(
 @Command({ command: 'create:permission', describe: 'create a admin' })
 async create() {
     try {
+        const isPermissionExist = await this.repositoryService.permissions.count({});
+
+        if (isPermissionExist > 0) {
+            console.log(`${PermissionSeeder.name} already exist`);
+
+            return;
+        }
+
         const permissions = [
             {
                 groupName   : 'Management Profile',
