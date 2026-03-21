@@ -25,7 +25,7 @@ async create() {
                 name    : Role.ADMIN, 
             },
             {
-                name    : Role.USER, 
+                name    : Role.MEMBER, 
             },
         ];
 

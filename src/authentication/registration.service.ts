@@ -20,7 +20,7 @@ export class RegistrationService {
      */
     public async getUserRoles(): Promise<RoleEntity[]> {
         try {
-            const role = await this.repositoryService.roles.getAll({ where: { name: Role.USER } });
+            const role = await this.repositoryService.roles.getAll({ where: { name: Role.MEMBER } });
 
             return role;
         } catch (error) {
