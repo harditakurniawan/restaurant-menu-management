@@ -9,7 +9,7 @@ constructor(
     private readonly repositoryService: IDataService,
 ) { }
 
-@Command({ command: 'create:permission', describe: 'create a admin' })
+@Command({ command: 'create:permission', describe: 'create a permission seeder' })
 async create() {
     try {
         const isPermissionExist = await this.repositoryService.permissions.count({});

@@ -8,7 +8,7 @@ constructor(
     private readonly repositoryService: IDataService,
 ) { }
 
-@Command({ command: 'create:role-permission', describe: 'create a admin' })
+@Command({ command: 'create:role-permission', describe: 'create role permission seeder' })
 async create() {
     try {
         const [roles, permissions] = await Promise.all([

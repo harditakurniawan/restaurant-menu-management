@@ -2,9 +2,9 @@
 import { Request } from 'express';
 
 export interface IAuth {
-  id          : number,
+  id          : string,
   email       : string,
-  roles?       : Array<string>,
+  roles?      : Array<string>,
   permission? : Array<string>,
 }
 

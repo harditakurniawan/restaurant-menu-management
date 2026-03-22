@@ -13,7 +13,7 @@ const db_config: TypeOrmModuleOptions = {
   entities          : [__dirname + '/../entity/*.entity.{js,ts}'],
   logging           : AppConfig.APP_MODE !== Environment.PROD,
   // extra             : { connectionLimit: 10 },
-  autoLoadEntities  : true,
+  autoLoadEntities  : AppConfig.APP_MODE === Environment.PROD,
 };
 
 export default db_config;
