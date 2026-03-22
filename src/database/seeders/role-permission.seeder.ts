@@ -9,28 +9,28 @@ constructor(
 ) { }
 
 @Command({ command: 'create:role-permission', describe: 'create role permission seeder' })
-async create() {
-    try {
-        const [roles, permissions] = await Promise.all([
-            this.repositoryService.roles.getAll({ relations: ['permissions'] }),
-            this.repositoryService.permissions.getAll(),
-        ]);
+    async create() {
+        try {
+            const [roles, permissions] = await Promise.all([
+                this.repositoryService.roles.getAll({ relations: ['permissions'] }),
+                this.repositoryService.permissions.getAll(),
+            ]);
 
-        for (const role of roles) {
-            if (role.permissions && role.permissions.length > 0) {
-                continue;
+            for (const role of roles) {
+                if (role.permissions && role.permissions.length > 0) {
+                    continue;
+                }
+
+                role.permissions = permissions;
+
+                await this.repositoryService.roles.save(role);
             }
 
-            role.permissions = permissions;
+            console.log(`${RolePermissionSeeder.name} SUCCESS`);
+        } catch (error) {
+            console.log(`${RolePermissionSeeder.name} ERROR`, error.message);
 
-            await this.repositoryService.roles.save(role);
+            throw new InternalServerErrorException(error.message);
         }
-
-        console.log(`${RolePermissionSeeder.name} SUCCESS`);
-    } catch (error) {
-        console.log(`${RolePermissionSeeder.name} ERROR`, error.message);
-
-        throw new InternalServerErrorException(error.message);
     }
-}
 }

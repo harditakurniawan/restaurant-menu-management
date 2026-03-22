@@ -6,17 +6,25 @@ import { RoleSeeder } from './role.seeder';
 import { RolePermissionSeeder } from './role-permission.seeder';
 import { AdminSeeder } from './admin.seeder';
 import { Utils } from '@utils/utils.service';
+import { CategorySeeder } from './category.seeder';
+import { RestaurantSeeder } from './restaurant.seeder';
+import { MenuItemSeeder } from './menu-item.seeder';
 
 @Module({
     imports: [
         CommandModule, 
         DataServicesModule,
     ],
+
+    // seeders must be in order
     providers: [
         PermissionSeeder,
         RoleSeeder,
         RolePermissionSeeder,
         AdminSeeder,
+        CategorySeeder,
+        RestaurantSeeder,
+        MenuItemSeeder,
         Utils, // Utils should be the last provider to be initialized
     ],
 })

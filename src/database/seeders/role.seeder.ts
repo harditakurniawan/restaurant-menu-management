@@ -10,32 +10,32 @@ constructor(
 ) { }
 
 @Command({ command: 'create:role', describe: 'create role seeder' })
-async create() {
-    try {
-        const isRoleExist = await this.repositoryService.roles.count({});
+    async create() {
+        try {
+            const isRoleExist = await this.repositoryService.roles.isExist({ name: Role.ADMIN });
 
-        if (isRoleExist > 0) {
-            console.log(`${RoleSeeder.name} already exist`);
+            if (isRoleExist) {
+                console.log(`${RoleSeeder.name} already exist`);
 
-            return;
+                return;
+            }
+
+            const roles = [
+                {
+                    name    : Role.ADMIN, 
+                },
+                {
+                    name    : Role.MEMBER, 
+                },
+            ];
+
+            await this.repositoryService.roles.insertMany(roles);
+
+            console.log(`${RoleSeeder.name} SUCCESS`);
+        } catch (error) {
+            console.log(`${RoleSeeder.name} ERROR`, error.message);
+
+            throw new InternalServerErrorException(error.message);
         }
-
-        const roles = [
-            {
-                name    : Role.ADMIN, 
-            },
-            {
-                name    : Role.MEMBER, 
-            },
-        ];
-
-        await this.repositoryService.roles.insertMany(roles);
-
-        console.log(`${RoleSeeder.name} SUCCESS`);
-    } catch (error) {
-        console.log(`${RoleSeeder.name} ERROR`, error.message);
-
-        throw new InternalServerErrorException(error.message);
     }
-}
 }

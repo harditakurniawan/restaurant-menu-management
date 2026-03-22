@@ -11,7 +11,6 @@ import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from '@core-guards/jwt-auth.guard';
 import { AllExceptionsFilter } from './core/exceptions/all-exception.filter';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { DatabaseInitService } from './database/config/database-init.service';
 
 @Module({
   imports: [
@@ -24,7 +23,6 @@ import { DatabaseInitService } from './database/config/database-init.service';
   ],
   controllers: [AppController],
   providers: [
-    DatabaseInitService,
     AppService,
     JwtService,
     {
