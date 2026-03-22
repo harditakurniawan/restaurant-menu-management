@@ -1,6 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppConfig } from '@core-config/config';
 import { Environment } from '@core-enum/environment.enum';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 const db_config: TypeOrmModuleOptions = {
   type              : 'postgres',
@@ -14,6 +15,7 @@ const db_config: TypeOrmModuleOptions = {
   logging           : AppConfig.APP_MODE !== Environment.PROD,
   // extra             : { connectionLimit: 10 },
   autoLoadEntities  : AppConfig.APP_MODE === Environment.PROD,
+  namingStrategy    : new SnakeNamingStrategy()
 };
 
 export default db_config;
