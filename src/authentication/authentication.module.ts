@@ -25,6 +25,9 @@ import { IsUniqueEmailConstraint } from '@core-constraint/is-unique-email.constr
     JwtStrategy,
     Utils,
     IsUniqueEmailConstraint,
+  ],
+  exports: [
+    AuthenticationService,
   ]
 })
 export class AuthenticationModule {}

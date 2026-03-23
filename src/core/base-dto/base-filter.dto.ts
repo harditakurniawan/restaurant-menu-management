@@ -1,31 +1,49 @@
-import { Transform, Type } from 'class-transformer';
+import { Type } from 'class-transformer';
 import { IsEnum, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { SortType } from '@core-enum/config.enum';
+import { SortType } from '../enum/config.enum';
+import { IFilter } from '../interface/interface';
+
+export const DEFAULT_LIMIT = 10;
+export const DEFAULT_PAGE = 1;
 
 export class BaseFilterDto {
-  @ApiProperty()
+  @ApiProperty({
+    description: 'Order by column (default: id)',
+    example: 'id',
+  })
   @IsString()
   @IsOptional()
-  sortBy: string = '_id';
+  orderBy = 'id';
 
-  @ApiProperty({ enum: SortType })
+  @ApiProperty({
+    description: 'Sort type (default: desc)',
+    enum: SortType,
+    example: SortType.DESC,
+  })
   @IsString()
   @IsEnum(SortType)
   @IsOptional()
-  sortType: string = 'asc';
+  sortType = SortType.DESC;
 
-  @ApiProperty()
-  @Min(1)
-  @IsNumber()
-  @Min(1)
-  @Type(() => Number)
-  @IsOptional()
-  page: number = 1;
-
-  @ApiProperty()
+  @ApiProperty({
+    description: `Page number (default: ${DEFAULT_PAGE})`,
+    example: DEFAULT_PAGE,
+  })
   @IsNumber()
   @Type(() => Number)
   @IsOptional()
-  limit: number = 15;
+  page = DEFAULT_PAGE;
+
+  @ApiProperty({
+    description: `Per page number (default: ${DEFAULT_LIMIT})`,
+    example: DEFAULT_LIMIT,
+  })
+  @IsNumber()
+  @Type(() => Number)
+  @IsOptional()
+  perPage = DEFAULT_LIMIT;
+
+  @IsOptional()
+  filter: IFilter;
 }

@@ -17,6 +17,6 @@ export class Restaurant extends Base {
     @Column({ length: 15 })
     opening_hour: string;
 
-    @OneToMany(() => MenuItem, (menuItem) => menuItem.restaurant, { onDelete: 'CASCADE' })
+    @OneToMany(() => MenuItem, (menuItem) => menuItem.restaurant, { cascade: true })
     menuItems: MenuItem[];
 }

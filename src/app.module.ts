@@ -11,6 +11,8 @@ import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from '@core-guards/jwt-auth.guard';
 import { AllExceptionsFilter } from './core/exceptions/all-exception.filter';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { MenuItemModule } from './menu-item/menu-item.module';
+import { RestaurantModule } from './restaurant/restaurant.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     ScheduleModule.forRoot(),
     UtilsModule,
     AuthenticationModule,
+    MenuItemModule,
+    RestaurantModule,
   ],
   controllers: [AppController],
   providers: [

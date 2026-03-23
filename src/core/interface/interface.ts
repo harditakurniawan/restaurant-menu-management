@@ -58,7 +58,7 @@ interface Condition {
 }
 
 interface Pagination {
-  order : { [key: string]: string }; // example = orders: { createdAt: 'DESC' }
+  order : { [key: string]: string }; // example = orders: { id: 'DESC' }
   take  : number;
   skip  : number;
 }

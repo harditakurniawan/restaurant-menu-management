@@ -18,9 +18,9 @@ export class MenuItem extends Base {
     @Column({ default: true })
     is_available: boolean;
 
-    @ManyToOne(() => Category, (category) => category.menuItems)
+    @ManyToOne(() => Category, (category) => category.menuItems, { onDelete: 'SET NULL' })
     category: Category;
 
-    @ManyToOne(() => Restaurant, (restaurant) => restaurant.menuItems)
+    @ManyToOne(() => Restaurant, (restaurant) => restaurant.menuItems, { onDelete: 'CASCADE' })
     restaurant: Restaurant;
 }

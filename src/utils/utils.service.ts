@@ -146,6 +146,15 @@ export class Utils {
     };
   };
 
+  public reformatMsisdn(msisdn: string) {
+    let formatMsisdn = msisdn;
+    formatMsisdn = formatMsisdn.replace(/^\+/, '');
+    formatMsisdn = formatMsisdn.replace(/^08/, '628');
+    formatMsisdn = formatMsisdn.replace(/\+/g,' ');
+    
+    return formatMsisdn;
+  };
+
   public async uploadFile(fileManagementAbstraction: IFileManagement, payload: FileUploadType): Promise<string> {
     const { file, req } = payload;
 
@@ -176,10 +185,17 @@ export class Utils {
     return validEmailFormat.test(email);
   };
 
-  public validatePhoneNumber(phone: string): boolean {
-    const regex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
+  public validateOpeningHour(openingHour: string): boolean {
+    const regex = /^([01]\d|2[0-3]):([0-5]\d) - ([01]\d|2[0-3]):([0-5]\d)$/;
+              
+    return typeof openingHour === 'string' && regex.test(openingHour);
+  }
 
-    if (regex.exec(phone)) {
+  public validatePhoneNumber(phone: string): boolean {
+    const regex = /^(\+62|62|0)8[1-9][0-9]{6,10}$/;
+    const isValidPhoneNumber = regex.exec(phone);
+
+    if (isValidPhoneNumber) {
       return true;
     }
 

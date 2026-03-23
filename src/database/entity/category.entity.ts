@@ -15,6 +15,6 @@ export class Category extends Base {
     @Column({ type: 'int' })
     ord: number;
 
-    @OneToMany(() => MenuItem, (menuItem) => menuItem.category)
+    @OneToMany(() => MenuItem, (menuItem) => menuItem.category, { cascade: true })
     menuItems: MenuItem[];
 }
