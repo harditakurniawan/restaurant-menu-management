@@ -16,7 +16,7 @@ export class MenuItemTransformer extends BaseTransformer {
             name            : data.name,
             description     : data.description,
             price           : data.price,
-            is_available    : data.is_available,
+            is_available    : data.isAvailable,
             created_at      : data.createdAt,
             updated_at      : data.updatedAt,
             category        : data.category ? CategoryTransformer.singleTransform(data.category) : null

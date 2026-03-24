@@ -16,7 +16,7 @@ export class MenuItem extends Base {
     price: number;
 
     @Column({ default: true })
-    is_available: boolean;
+    isAvailable: boolean;
 
     @ManyToOne(() => Category, (category) => category.menuItems, { onDelete: 'SET NULL' })
     category: Category;
