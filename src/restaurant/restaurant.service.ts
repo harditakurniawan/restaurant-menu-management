@@ -53,9 +53,9 @@ export class RestaurantService {
 
       const { relations, ... queryConut} = queryCondition;
 
-      const [restaurant, totalRecords] = await Promise.all([
-          this.repositoryService.restaurants.getAll(queryCondition),
-          this.repositoryService.restaurants.count(queryConut)
+      const [restaurants, totalRecords] = await Promise.all([
+        this.repositoryService.restaurants.getAll(queryCondition),
+        this.repositoryService.restaurants.count(queryConut)
       ]);
 
       return {
@@ -63,7 +63,7 @@ export class RestaurantService {
         perPage     : perPage,
         page        : page,
         total       : totalRecords,
-        data        : RestaurantTransformer.transform(restaurant),
+        data        : RestaurantTransformer.transform(restaurants),
       }
     } catch (error) {
       throw new InternalServerErrorException(error);

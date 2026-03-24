@@ -19,7 +19,7 @@ export class RestaurantTransformer extends BaseTransformer {
             opening_hour    : data.opening_hour,
             created_at      : data.createdAt,
             updated_at      : data.updatedAt,
-            menu_items      : MenuItemTransformer.transform(data.menuItems),
+            menu_items      : data.menuItems ? MenuItemTransformer.transform(data.menuItems) : null,
         };
 
         return response;
