@@ -13,6 +13,7 @@ import { AllExceptionsFilter } from './core/exceptions/all-exception.filter';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { MenuItemModule } from './menu-item/menu-item.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
     AuthenticationModule,
     MenuItemModule,
     RestaurantModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [

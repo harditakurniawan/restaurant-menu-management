@@ -142,3 +142,14 @@ export const FileManagementClass = {
   [FileDriver.CLOUDINARY] : new CloudinaryManagementFile(),
   [FileDriver.LOCAL]      : new LocalManagementFile(),
 }
+
+export const PostgresErrorCode = {
+  UNIQUE_VIOLATION: '23505',
+  FOREIGN_KEY_VIOLATION: '23503',
+  NOT_NULL_VIOLATION: '23502',
+  CHECK_VIOLATION: '23514',
+  INVALID_TEXT_REPRESENTATION: '22P02',
+  UNDEFINED_COLUMN: '42703',
+  UNDEFINED_TABLE: '42P01',
+  STRING_DATA_RIGHT_TRUNCATION: '22001',
+};

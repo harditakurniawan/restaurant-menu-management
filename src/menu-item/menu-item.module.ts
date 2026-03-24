@@ -9,13 +9,7 @@ import { PaginationMiddleware } from '@core-middleware/pagination.middleware';
     DataServicesModule,
   ],
   controllers: [MenuItemController],
-  providers: [MenuItemService]
+  providers: [MenuItemService],
+  exports: [MenuItemService]
 })
-export class MenuItemModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(PaginationMiddleware).forRoutes({
-      path: `v1/menu-items`,
-      method: RequestMethod.GET,
-    });
-  }
-}
+export class MenuItemModule {}

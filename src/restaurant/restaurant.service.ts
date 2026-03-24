@@ -1,6 +1,5 @@
 import { ForbiddenException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
-import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { IDataService } from '@core-abstraction/data-service.abstract';
 import { ResponseMessageTransformer } from '@core-transformers/response-message.transformer';
 import { RestaurantTransformer } from '@core-transformers/restaurant.transformer';
@@ -42,6 +41,7 @@ export class RestaurantService {
         condition,
         pagination: { order, take, skip },
       } = filter;
+      console.log(condition)
 
       const queryCondition = {
           where       : { ...condition },
@@ -59,8 +59,8 @@ export class RestaurantService {
       ]);
 
       return {
-        lastPage    : perPage !== 0 ? Math.ceil(totalRecords / perPage) : 0,
-        perPage     : perPage,
+        last_page    : perPage !== 0 ? Math.ceil(totalRecords / perPage) : 0,
+        per_page     : perPage,
         page        : page,
         total       : totalRecords,
         data        : RestaurantTransformer.transform(restaurants),
@@ -142,7 +142,7 @@ export class RestaurantService {
    * @param id 
    * @param updateRestaurantDto 
    */
-  public async update(id: string, updateRestaurantDto: UpdateRestaurantDto): Promise<void> {
+  public async update(id: string, updateRestaurantDto: CreateRestaurantDto): Promise<void> {
     try {
       const updateResult = await this.repositoryService.restaurants.update({ id }, updateRestaurantDto);
 
