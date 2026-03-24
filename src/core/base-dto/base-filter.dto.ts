@@ -4,27 +4,29 @@ import { ApiProperty } from '@nestjs/swagger';
 import { SortType } from '../enum/config.enum';
 import { IFilter } from '../interface/interface';
 
+export const DEFAULT_ORDER_BY = 'id';
+export const DEFAULT_SORT_TYPE = SortType.DESC;
 export const DEFAULT_LIMIT = 10;
 export const DEFAULT_PAGE = 1;
 
 export class BaseFilterDto {
   @ApiProperty({
     description: 'Order by column (default: id)',
-    example: 'id',
+    example: DEFAULT_ORDER_BY,
   })
   @IsString()
   @IsOptional()
-  orderBy = 'id';
+  orderBy = DEFAULT_ORDER_BY;
 
   @ApiProperty({
     description: 'Sort type (default: desc)',
     enum: SortType,
-    example: SortType.DESC,
+    example: DEFAULT_SORT_TYPE,
   })
   @IsString()
   @IsEnum(SortType)
   @IsOptional()
-  sortType = SortType.DESC;
+  sortType = DEFAULT_SORT_TYPE;
 
   @ApiProperty({
     description: `Page number (default: ${DEFAULT_PAGE})`,

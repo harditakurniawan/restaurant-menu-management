@@ -2,6 +2,7 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as moment from 'moment';
 import { ILike, IsNull, MoreThanOrEqual, Not } from 'typeorm';
 import { IFilter } from '../interface/interface';
+import { DEFAULT_ORDER_BY, DEFAULT_SORT_TYPE } from '@core-base-dto/base-filter.dto';
 
 @Injectable()
 export class PaginationMiddleware implements NestMiddleware {
@@ -13,8 +14,8 @@ export class PaginationMiddleware implements NestMiddleware {
     const perPages = parseInt(perPage && perPage > 0 ? perPage : 15);
     const pages = parseInt(page && page > 0 ? page : 1);
 
-    const order = orderBy || 'createdAt';
-    const sort = sortType?.toUpperCase() || 'DESC';
+    const order = orderBy || DEFAULT_ORDER_BY;
+    const sort = sortType?.toUpperCase() || DEFAULT_SORT_TYPE;
     const skip = perPages * pages - perPages;
 
     const filter: IFilter = {
