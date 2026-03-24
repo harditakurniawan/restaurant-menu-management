@@ -1,0 +1,4226 @@
+{
+  "info": {
+    "_postman_id": "0d2c4df7-53df-47a0-97be-3e42b2894d4e",
+    "name": "Hungry Hub - API Doc",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11229455",
+    "_collection_link": "https://go.postman.co/collection/11229455-0d2c4df7-53df-47a0-97be-3e42b2894d4e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Hardita Kurniawan\",\n    \"email\": \"hardita.kurniawan@gmail.com\",\n    \"password\": \"@Didit123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/auth/registration",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "registration"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Hardita Kurniawan 2\",\n    \"email\": \"hardita.kurniawan2@gmail.com\",\n    \"password\": \"@Didit123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/auth/registration",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "registration"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "174"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 14 Mar 2026 02:29:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 201,\n        \"status\": \"Created\",\n        \"message\": [],\n        \"url\": \"/api/v1/auth/registration\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"user created\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Sign In",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = pm.response.json();",
+                  "var accessToken = response.data.access_token;",
+                  "",
+                  "pm.environment.set('bearer_token', accessToken);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "hardita.kurniawan@gmail.com",
+                  "type": "text",
+                  "uuid": "19098cfe-6590-415c-baa8-e75a1db3835c",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "@Didit123",
+                  "type": "text",
+                  "uuid": "df2d1771-f0fd-4467-828f-b456f7507c84",
+                  "disabled": true
+                },
+                {
+                  "key": "email",
+                  "value": "admin@admin.com",
+                  "type": "text",
+                  "uuid": "339a9805-816c-44e4-9a32-edbdb66b114f"
+                },
+                {
+                  "key": "password",
+                  "value": "admin#2026!",
+                  "type": "text",
+                  "uuid": "1163fe9e-43c9-4df3-a5ed-c88e925de585"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/auth/sign-in",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "sign-in"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Sign In",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "hardita.kurniawan@gmail.com",
+                      "type": "text",
+                      "uuid": "19098cfe-6590-415c-baa8-e75a1db3835c"
+                    },
+                    {
+                      "key": "password",
+                      "value": "@Didit123",
+                      "type": "text",
+                      "uuid": "df2d1771-f0fd-4467-828f-b456f7507c84"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/auth/sign-in",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "sign-in"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "1179"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 12 Mar 2026 08:37:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 201,\n        \"status\": \"Created\",\n        \"message\": [],\n        \"url\": \"/api/v1/auth/sign-in\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJkaXRhLmt1cm5pYXdhbkBnbWFpbC5jb20iLCJyb2xlIjpbInVzZXIiXSwicGVybWlzc2lvbiI6WyJwcm9maWxlX2FjY2VzcyIsInByb2ZpbGVfY3JlYXRlIiwicHJvZmlsZV9lZGl0IiwicHJvZmlsZV9zaG93IiwicHJvZmlsZV9kZWxldGUiXSwiaWF0IjoxNzczMzA0NjM3LCJleHAiOjE3NzM5MDk0MzcsImlzcyI6IkF1dGhlbnRpY2F0aW9uU2VydmljZSJ9.A74PzBWJGvoWq7j3r1_n3O5P_g2d2rvNZfW5JfzoYUfNKBPVkkeZKyZ07_rb1KL1uaOC8pimmq_wwAY4YpnNi0KQsSDaQwP3_qRGhYzImd3N2W4xIzJs1ZNiTICMQ_zP_Xc8UcH97RiaXQCL_XAY9HtxBp3i1A_P2gonVgw34mVq2D7g_G8CdF8soDW0H8ZrKfmzEgnlEve_ktSyu1j0Uv1WV28r-sqxI0QkZIfvt_C1J4pzpHsGAH-t0NprWCAsz61ObBuX6fp8O_Xcy90dZYx68uMrftGLUP4_dAEq-FaFnK6sSDLqJQ9ghfS19zJ6WVvfIdKBZ4-WookepLA8ASx08OQtCxoYXUvqnM1ynKcQ9gi_QvoMJRXwAzkFKbtvWE_P4lN2-W20mbFh_-gZ8a2lNMuE7rcjYa5wusEwSTaTprwBBK3ebJ-dAJ9tQRBVOVtXIMT7tv49_A7JcVzDh0AIf4sl5L7WaELtapSVWj_xWu5D5wfb20lJJOKD_XuhrmiQX6G8UE36YWa-ufRVQKJWIRAVOqMKe-MJU-60vjo30APurG1U77d_uR2jnOGS56u70EX_tC47AT7ky9Q7UGW8YKISmynJmKD0k8EYKsJalepXGlEOuE5-4LQgp-pW4Z2giR0ADnLkXmUnFemToW9vFOo5chXfvQ-D5RDypPU\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Sign Out",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/auth/sign-out",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "sign-out"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Sign Out",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/auth/sign-out",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "sign-out"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "174"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 12 Mar 2026 08:39:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 201,\n        \"status\": \"Created\",\n        \"message\": [],\n        \"url\": \"/api/v1/auth/sign-out\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"sign out success\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "Get Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/categories?orderBy=ord",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "categories"
+              ],
+              "query": [
+                {
+                  "key": "orderBy",
+                  "value": "ord",
+                  "description": "id, created_at"
+                },
+                {
+                  "key": "sortType",
+                  "value": "asc",
+                  "description": "enum: ['asc', 'desc'] | default: desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "default: 1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "perPage",
+                  "value": "10",
+                  "description": "default: 10",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "w",
+                  "description": "search by name",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "sou",
+                  "description": "search by code",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/categories?orderBy=ord",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "categories"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "ord",
+                      "description": "id, created_at"
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc",
+                      "description": "enum: ['asc', 'desc'] | default: desc",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "default: 1",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10",
+                      "description": "default: 10",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "w",
+                      "description": "search by name",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "code",
+                      "value": "sou",
+                      "description": "search by code",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "991"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 13:18:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/categories?orderBy=ord\",\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"page\": 1,\n        \"total\": 5\n    },\n    \"data\": [\n        {\n            \"id\": \"019d1c00-8ffd-74fc-858e-acb4cbc91650\",\n            \"name\": \"Soup\",\n            \"code\": \"soup\",\n            \"ord\": 5,\n            \"created_at\": \"2026-03-23T18:41:32.151Z\",\n            \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n        },\n        {\n            \"id\": \"019d1c00-8ffd-7942-a6d2-41216dc2fda4\",\n            \"name\": \"Drink\",\n            \"code\": \"drink\",\n            \"ord\": 4,\n            \"created_at\": \"2026-03-23T18:41:32.151Z\",\n            \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n        },\n        {\n            \"id\": \"019d1c00-8ffd-733e-9df4-268a54521d50\",\n            \"name\": \"Dessert\",\n            \"code\": \"dessert\",\n            \"ord\": 3,\n            \"created_at\": \"2026-03-23T18:41:32.151Z\",\n            \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n        },\n        {\n            \"id\": \"019d1c00-8ffc-7128-9efe-923421d28069\",\n            \"name\": \"Main Course\",\n            \"code\": \"main_course\",\n            \"ord\": 2,\n            \"created_at\": \"2026-03-23T18:41:32.151Z\",\n            \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n        },\n        {\n            \"id\": \"019d1c00-8ff9-771f-94b6-46488dce3723\",\n            \"name\": \"Appetizer\",\n            \"code\": \"appetizer\",\n            \"ord\": 1,\n            \"created_at\": \"2026-03-23T18:41:32.151Z\",\n            \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Restaurant",
+      "item": [
+        {
+          "name": "Create Restaurant",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"A & W\",\n    \"address\": \"Pasar Kaliki St\",\n    \"phone\": \"08122123123\",\n    \"opening_hour\": \"10:00 - 22:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[400] Error Validation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "330"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 04:52:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 400,\n        \"status\": \"Bad Request\",\n        \"message\": [\n            \"name should not be empty\",\n            \"name must be a string\",\n            \"address should not be empty\",\n            \"address must be a string\",\n            \"phone should not be empty\",\n            \"phone must be a string\",\n            \"opening_hour should not be empty\",\n            \"opening_hour must be a string\"\n        ],\n        \"url\": \"/api/v1/restaurants\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[403] Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"A & W\",\n    \"address\": \"Pasar Kaliki St\",\n    \"phone\": \"08122123123\",\n    \"opening_hour\": \"10:00 - 22:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "121"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 05:54:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 403,\n        \"status\": \"Forbidden\",\n        \"message\": [\n            \"Forbidden resource\"\n        ],\n        \"url\": \"/api/v1/restaurants\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[201] Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"A & W\",\n    \"address\": \"Pasar Kaliki St\",\n    \"phone\": \"08122123123\",\n    \"opening_hour\": \"10:00 - 22:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "187"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 05:17:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 201,\n        \"status\": \"Created\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"Restaurant created successfully\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Restaurants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants"
+              ],
+              "query": [
+                {
+                  "key": "orderBy",
+                  "value": "created_at",
+                  "description": "id, created_at",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "sortType",
+                  "value": "asc",
+                  "description": "enum: ['asc', 'desc'] | default: desc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "default: 1",
+                  "disabled": true
+                },
+                {
+                  "key": "perPage",
+                  "value": "10",
+                  "description": "default: 10",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "w",
+                  "description": "search by name",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "created_at",
+                      "description": "id, created_at",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc",
+                      "description": "enum: ['asc', 'desc'] | default: desc",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10",
+                      "description": "default: 10",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "w",
+                      "description": "search by name",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "832"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 06:42:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants\",\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"page\": 1,\n        \"total\": 3\n    },\n    \"data\": [\n        {\n            \"id\": \"019d1951-f3a9-73b4-b103-312253cfedad\",\n            \"name\": \"A & W\",\n            \"address\": \"Pasar Kaliki St\",\n            \"phone\": \"628122123123\",\n            \"opening_hour\": \"10:00 - 22:00\",\n            \"created_at\": \"2026-03-23T06:11:34.433Z\",\n            \"updated_at\": \"2026-03-23T06:11:34.433Z\"\n        },\n        {\n            \"id\": \"019d1654-1873-78f3-9519-082b3ad61b8a\",\n            \"name\": \"Restaurant 1\",\n            \"address\": \"Jl. Sudirman No. 123\",\n            \"phone\": \"628123456789\",\n            \"opening_hour\": \"09:00 - 22:00\",\n            \"created_at\": \"2026-03-22T16:15:03.280Z\",\n            \"updated_at\": \"2026-03-22T16:15:03.280Z\"\n        },\n        {\n            \"id\": \"019d1654-1875-70e8-9c9e-fc423e8dd8f9\",\n            \"name\": \"Restaurant 2\",\n            \"address\": \"Jl. Sudirman No. 456\",\n            \"phone\": \"6281234567890\",\n            \"opening_hour\": \"09:00 - 22:00\",\n            \"created_at\": \"2026-03-22T16:15:03.280Z\",\n            \"updated_at\": \"2026-03-22T16:15:03.280Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail Restaurant (Include Menu Items)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants",
+                ":restaurant_id"
+              ],
+              "variable": [
+                {
+                  "key": "restaurant_id",
+                  "value": "019d1c00-94b6-7881-98dc-51566e6d67ba"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[404] Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1951-f3a9-73b4-b103-312253cfedae"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "160"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 06:24:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 404,\n        \"status\": \"Not Found\",\n        \"message\": [\n            \"Restaurant not found\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1951-f3a9-73b4-b103-312253cfedae\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[200] Success Without Token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f9"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "1838"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 18:32:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1654-1875-70e8-9c9e-fc423e8dd8f9\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"id\": \"019d1654-1875-70e8-9c9e-fc423e8dd8f9\",\n        \"name\": \"Restaurant 2 - edit\",\n        \"address\": \"Jl. Sudirman No. 456\",\n        \"phone\": \"6281234567890\",\n        \"opening_hour\": \"09:00 - 22:00\",\n        \"created_at\": \"2026-03-22T16:15:03.280Z\",\n        \"updated_at\": \"2026-03-23T06:58:07.643Z\",\n        \"menu_items\": [\n            {\n                \"id\": \"019d165f-f0f6-7014-a432-e9fcd91c149a\",\n                \"name\": \"Menu 2 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 2\",\n                \"price\": \"14351.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": null\n            },\n            {\n                \"id\": \"019d165f-f0f6-7ccb-aaa2-684939fafa2f\",\n                \"name\": \"Menu 1 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 1\",\n                \"price\": \"11123.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": null\n            },\n            {\n                \"id\": \"019d165f-f0f6-737f-b1da-d0d01125a75a\",\n                \"name\": \"Menu 3 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 3\",\n                \"price\": \"47351.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": null\n            },\n            {\n                \"id\": \"019d165f-f0f6-7a62-a32b-7e21fb9277fe\",\n                \"name\": \"Menu 4 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 4\",\n                \"price\": \"101482.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": null\n            },\n            {\n                \"id\": \"019d165f-f0f6-7c05-87fa-28f1fe88b6aa\",\n                \"name\": \"Menu 5 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 5\",\n                \"price\": \"104947.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": null\n            }\n        ]\n    }\n}"
+            },
+            {
+              "name": "[200] Success With Token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f9"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "2655"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 18:33:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1654-1875-70e8-9c9e-fc423e8dd8f9\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"id\": \"019d1654-1875-70e8-9c9e-fc423e8dd8f9\",\n        \"name\": \"Restaurant 2 - edit\",\n        \"address\": \"Jl. Sudirman No. 456\",\n        \"phone\": \"6281234567890\",\n        \"opening_hour\": \"09:00 - 22:00\",\n        \"created_at\": \"2026-03-22T16:15:03.280Z\",\n        \"updated_at\": \"2026-03-23T06:58:07.643Z\",\n        \"menu_items\": [\n            {\n                \"id\": \"019d165f-f0f6-7014-a432-e9fcd91c149a\",\n                \"name\": \"Menu 2 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 2\",\n                \"price\": \"14351.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": {\n                    \"id\": \"019d165b-05d4-73fd-9aee-abd8c8141aac\",\n                    \"name\": \"Main Course\",\n                    \"code\": \"main_course\",\n                    \"ord\": 2,\n                    \"created_at\": \"2026-03-22T16:22:37.263Z\",\n                    \"updated_at\": \"2026-03-22T16:22:37.263Z\"\n                }\n            },\n            {\n                \"id\": \"019d165f-f0f6-7ccb-aaa2-684939fafa2f\",\n                \"name\": \"Menu 1 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 1\",\n                \"price\": \"11123.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": {\n                    \"id\": \"019d165b-05d1-7342-a4e2-2879963ece9e\",\n                    \"name\": \"Appetizer\",\n                    \"code\": \"appetizer\",\n                    \"ord\": 1,\n                    \"created_at\": \"2026-03-22T16:22:37.263Z\",\n                    \"updated_at\": \"2026-03-22T16:22:37.263Z\"\n                }\n            },\n            {\n                \"id\": \"019d165f-f0f6-737f-b1da-d0d01125a75a\",\n                \"name\": \"Menu 3 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 3\",\n                \"price\": \"47351.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": {\n                    \"id\": \"019d165b-05d4-7712-af9d-bc67c8b28a64\",\n                    \"name\": \"Dessert\",\n                    \"code\": \"dessert\",\n                    \"ord\": 3,\n                    \"created_at\": \"2026-03-22T16:22:37.263Z\",\n                    \"updated_at\": \"2026-03-22T16:22:37.263Z\"\n                }\n            },\n            {\n                \"id\": \"019d165f-f0f6-7a62-a32b-7e21fb9277fe\",\n                \"name\": \"Menu 4 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 4\",\n                \"price\": \"101482.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": {\n                    \"id\": \"019d165b-05d4-7292-bbe7-139ba5099d87\",\n                    \"name\": \"Drink\",\n                    \"code\": \"drink\",\n                    \"ord\": 4,\n                    \"created_at\": \"2026-03-22T16:22:37.263Z\",\n                    \"updated_at\": \"2026-03-22T16:22:37.263Z\"\n                }\n            },\n            {\n                \"id\": \"019d165f-f0f6-7c05-87fa-28f1fe88b6aa\",\n                \"name\": \"Menu 5 - #Restaurant 2\",\n                \"description\": \"Description from restaurant Restaurant 2 and menu 5\",\n                \"price\": \"104947.00\",\n                \"is_available\": true,\n                \"created_at\": \"2026-03-22T16:27:59.601Z\",\n                \"updated_at\": \"2026-03-22T16:27:59.601Z\",\n                \"category\": {\n                    \"id\": \"019d165b-05d4-71c0-a34c-71612e34d274\",\n                    \"name\": \"Soup\",\n                    \"code\": \"soup\",\n                    \"ord\": 5,\n                    \"created_at\": \"2026-03-22T16:22:37.263Z\",\n                    \"updated_at\": \"2026-03-22T16:22:37.263Z\"\n                }\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Restaurant",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Restaurant 2 - edit\",\n    \"address\": \"Jl. Sudirman No. 456\",\n    \"phone\": \"6281234567890\",\n    \"opening_hour\": \"09:00 - 22:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants",
+                ":restaurant_id"
+              ],
+              "variable": [
+                {
+                  "key": "restaurant_id",
+                  "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f9"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Restaurant 2 - edit\",\n    \"address\": \"Jl. Sudirman No. 456\",\n    \"phone\": \"6281234567890\",\n    \"opening_hour\": \"09:00 - 22:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f9"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "219"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 06:55:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1654-1875-70e8-9c9e-fc423e8dd8f9\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"Restaurant updated successfully\"\n    }\n}"
+            },
+            {
+              "name": "[400] Bad Request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f9"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "462"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 06:56:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 400,\n        \"status\": \"Bad Request\",\n        \"message\": [\n            \"name should not be empty\",\n            \"name must be a string\",\n            \"address should not be empty\",\n            \"address must be a string\",\n            \"phone is not valid\",\n            \"phone should not be empty\",\n            \"phone must be a string\",\n            \"opening_hour must follow the format HH:mm - HH:mm (e.g., 09:00 - 22:00)\",\n            \"opening_hour should not be empty\",\n            \"opening_hour must be a string\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1654-1875-70e8-9c9e-fc423e8dd8f9\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[403] Forbidden",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Restaurant 2 - edit\",\n    \"address\": \"Jl. Sudirman No. 456\",\n    \"phone\": \"6281234567890\",\n    \"opening_hour\": \"09:00 - 22:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f9"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "158"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 06:57:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 403,\n        \"status\": \"Forbidden\",\n        \"message\": [\n            \"Forbidden resource\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1654-1875-70e8-9c9e-fc423e8dd8f9\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[404] Not Found",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Restaurant 2 - edit\",\n    \"address\": \"Jl. Sudirman No. 456\",\n    \"phone\": \"6281234567890\",\n    \"opening_hour\": \"09:00 - 22:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1654-1875-70e8-9c9e-fc423e8dd8f8"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "160"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 06:57:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 404,\n        \"status\": \"Not Found\",\n        \"message\": [\n            \"Restaurant not found\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1654-1875-70e8-9c9e-fc423e8dd8f8\"\n    },\n    \"data\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Restaurant",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants",
+                ":restaurant_id"
+              ],
+              "variable": [
+                {
+                  "key": "restaurant_id",
+                  "value": "019d1920-8154-72bd-9ff2-ba0d7e3004de"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[403] Forbidden",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1920-8154-72bd-9ff2-ba0d7e3004df"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "158"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 05:54:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 403,\n        \"status\": \"Forbidden\",\n        \"message\": [\n            \"Forbidden resource\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1920-8154-72bd-9ff2-ba0d7e3004df\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[404] Not Found",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1920-8154-72bd-9ff2-ba0d7e3004df"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "160"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 05:58:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 404,\n        \"status\": \"Not Found\",\n        \"message\": [\n            \"Restaurant not found\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1920-8154-72bd-9ff2-ba0d7e3004df\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1920-8154-72bd-9ff2-ba0d7e3004de"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "219"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Mar 2026 05:59:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1920-8154-72bd-9ff2-ba0d7e3004de\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"Restaurant deleted successfully\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Menu Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Sop Daging Madura\",\n    \"description\": \"description\",\n    \"price\": 65000,\n    \"is_available\": true,\n    \"category_id\": \"019d1c00-8ffd-74fc-858e-acb4cbc91650\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants",
+                ":restaurant_id",
+                "menu-items"
+              ],
+              "variable": [
+                {
+                  "key": "restaurant_id",
+                  "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[403] Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Restaurant HK\",\n    \"description\": \"description\",\n    \"price\": 55000,\n    \"is_available\": false,\n    \"category_id\": \"xxx\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id",
+                    "menu-items"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "169"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 11:36:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 403,\n        \"status\": \"Forbidden\",\n        \"message\": [\n            \"Forbidden resource\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1fa1-8592-7f82-a31c-54a516f17370/menu-items\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[400] Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id",
+                    "menu-items"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "563"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 11:37:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 400,\n        \"status\": \"Bad Request\",\n        \"message\": [\n            \"name should not be empty\",\n            \"name must be a string\",\n            \"description should not be empty\",\n            \"description must be a string\",\n            \"price must not be less than 1\",\n            \"price should not be empty\",\n            \"price must be a number conforming to the specified constraints\",\n            \"is_available should not be empty\",\n            \"is_available must be a boolean value\",\n            \"category_id should not be empty\",\n            \"category_id must be a string\"\n        ],\n        \"url\": \"/api/v1/restaurants/019d1fa1-8592-7f82-a31c-54a516f17370/menu-items\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Nasi Goreng HK\",\n    \"description\": \"description\",\n    \"price\": 55000,\n    \"is_available\": false,\n    \"category_id\": \"019d1c00-8ffc-7128-9efe-923421d28069\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id",
+                    "menu-items"
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "234"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 12:54:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 201,\n        \"status\": \"Created\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1fa1-8592-7f82-a31c-54a516f17370/menu-items\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"Menu item created successfully\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Menu Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "restaurants",
+                ":restaurant_id",
+                "menu-items"
+              ],
+              "query": [
+                {
+                  "key": "orderBy",
+                  "value": "id",
+                  "description": "id, created_at",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "sortType",
+                  "value": "asc",
+                  "description": "enum: ['asc', 'desc'] | default: desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "default: 1",
+                  "disabled": true
+                },
+                {
+                  "key": "perPage",
+                  "value": "10",
+                  "description": "default: 10",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "nasi",
+                  "description": "search by name",
+                  "disabled": true
+                },
+                {
+                  "key": "category_id",
+                  "value": "019d1c00-8ffd-74fc-858e-acb4cbc91650",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "restaurant_id",
+                  "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id",
+                    "menu-items"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "id",
+                      "description": "id, created_at",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc",
+                      "description": "enum: ['asc', 'desc'] | default: desc",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10",
+                      "description": "default: 10",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "nasi",
+                      "description": "search by name",
+                      "disabled": true
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "019d1c00-8ffd-74fc-858e-acb4cbc91650",
+                      "disabled": true
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "981"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 14:46:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1fa1-8592-7f82-a31c-54a516f17370/menu-items\",\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"page\": 1,\n        \"total\": 2\n    },\n    \"data\": [\n        {\n            \"id\": \"019d2047-1d69-71cc-905b-d8ee8a90cbb3\",\n            \"name\": \"Sop Daging Madura\",\n            \"description\": \"description\",\n            \"price\": \"65000.00\",\n            \"is_available\": true,\n            \"created_at\": \"2026-03-24T14:37:04.736Z\",\n            \"updated_at\": \"2026-03-24T14:37:04.736Z\",\n            \"category\": {\n                \"id\": \"019d1c00-8ffd-74fc-858e-acb4cbc91650\",\n                \"name\": \"Soup\",\n                \"code\": \"soup\",\n                \"ord\": 5,\n                \"created_at\": \"2026-03-23T18:41:32.151Z\",\n                \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n            }\n        },\n        {\n            \"id\": \"019d1fe8-e24d-7121-bb66-8589c9e590a8\",\n            \"name\": \"Nasi Goreng\",\n            \"description\": \"description\",\n            \"price\": \"55000.00\",\n            \"is_available\": true,\n            \"created_at\": \"2026-03-24T12:54:09.221Z\",\n            \"updated_at\": \"2026-03-24T12:54:09.221Z\",\n            \"category\": {\n                \"id\": \"019d1c00-8ffc-7128-9efe-923421d28069\",\n                \"name\": \"Main Course\",\n                \"code\": \"main_course\",\n                \"ord\": 2,\n                \"created_at\": \"2026-03-23T18:41:32.151Z\",\n                \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n            }\n        }\n    ]\n}"
+            },
+            {
+              "name": "[200] Success with Filter",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/restaurants/:restaurant_id/menu-items?category_id=019d1c00-8ffd-74fc-858e-acb4cbc91650",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "restaurants",
+                    ":restaurant_id",
+                    "menu-items"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "id",
+                      "description": "id, created_at",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc",
+                      "description": "enum: ['asc', 'desc'] | default: desc",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10",
+                      "description": "default: 10",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "nasi",
+                      "description": "search by name",
+                      "disabled": true
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "019d1c00-8ffd-74fc-858e-acb4cbc91650"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "restaurant_id",
+                      "value": "019d1fa1-8592-7f82-a31c-54a516f17370"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "629"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 14:47:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/restaurants/019d1fa1-8592-7f82-a31c-54a516f17370/menu-items?category_id=019d1c00-8ffd-74fc-858e-acb4cbc91650\",\n        \"last_page\": 1,\n        \"per_page\": 10,\n        \"page\": 1,\n        \"total\": 1\n    },\n    \"data\": [\n        {\n            \"id\": \"019d2047-1d69-71cc-905b-d8ee8a90cbb3\",\n            \"name\": \"Sop Daging Madura\",\n            \"description\": \"description\",\n            \"price\": \"65000.00\",\n            \"is_available\": true,\n            \"created_at\": \"2026-03-24T14:37:04.736Z\",\n            \"updated_at\": \"2026-03-24T14:37:04.736Z\",\n            \"category\": {\n                \"id\": \"019d1c00-8ffd-74fc-858e-acb4cbc91650\",\n                \"name\": \"Soup\",\n                \"code\": \"soup\",\n                \"ord\": 5,\n                \"created_at\": \"2026-03-23T18:41:32.151Z\",\n                \"updated_at\": \"2026-03-23T18:41:32.151Z\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Menu Item",
+      "item": [
+        {
+          "name": "Update Menu Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Nasi Goreng Jumbo\",\n    \"description\": \"description\",\n    \"price\": 35000,\n    \"is_available\": true,\n    \"category_id\": \"019d1c00-8ffc-7128-9efe-923421d28069\",\n    \"restaurant_id\": \"019d1fa1-8592-7f82-a31c-54a516f17370\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "menu-items",
+                ":menu_id"
+              ],
+              "variable": [
+                {
+                  "key": "menu_id",
+                  "value": "019d1fe8-e24d-7121-bb66-8589c9e590a8"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[400] Bad Request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d1fe8-e24d-7121-bb66-8589c9e590a8"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "516"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:15:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 400,\n        \"status\": \"Bad Request\",\n        \"message\": [\n            \"name should not be empty\",\n            \"name must be a string\",\n            \"description should not be empty\",\n            \"description must be a string\",\n            \"price must not be less than 1\",\n            \"price should not be empty\",\n            \"price must be a number conforming to the specified constraints\",\n            \"is_available should not be empty\",\n            \"is_available must be a boolean value\",\n            \"category_id must be a UUID\",\n            \"category_id should not be empty\"\n        ],\n        \"url\": \"/api/v1/menu-items/019d1fe8-e24d-7121-bb66-8589c9e590a8\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[403] Forbidden",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d1fe8-e24d-7121-bb66-8589c9e590a8"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "157"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:16:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 403,\n        \"status\": \"Forbidden\",\n        \"message\": [\n            \"Forbidden resource\"\n        ],\n        \"url\": \"/api/v1/menu-items/019d1fe8-e24d-7121-bb66-8589c9e590a8\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[404] Not Found",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Nasi Goreng\",\n    \"description\": \"description\",\n    \"price\": 35000,\n    \"is_available\": true,\n    \"category_id\": \"019d1c00-8ffd-74fc-858e-acb4cbc91650\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d1fe8-e24d-7121-bb66-8589c9e590a9"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "158"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:19:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 404,\n        \"status\": \"Not Found\",\n        \"message\": [\n            \"Menu item not found\"\n        ],\n        \"url\": \"/api/v1/menu-items/019d1fe8-e24d-7121-bb66-8589c9e590a9\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Nasi Goreng Jumbo\",\n    \"description\": \"description\",\n    \"price\": 35000,\n    \"is_available\": true,\n    \"category_id\": \"019d1c00-8ffd-74fc-858e-acb4cbc91650\",\n    \"restaurant_id\": \"019d1fa1-8592-7f82-a31c-54a516f17370\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d1fe8-e24d-7121-bb66-8589c9e590a8"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "217"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:23:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/menu-items/019d1fe8-e24d-7121-bb66-8589c9e590a8\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"Menu item updated successfully\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Menu Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "3003",
+              "path": [
+                "api",
+                "v1",
+                "menu-items",
+                ":menu_id"
+              ],
+              "variable": [
+                {
+                  "key": "menu_id",
+                  "value": "019d2065-ebc2-7ea1-a6d5-81d05a656fb8"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[403] Forbidden",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d2051-2119-7ead-81f6-5faf37748094"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "157"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:08:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 403,\n        \"status\": \"Forbidden\",\n        \"message\": [\n            \"Forbidden resource\"\n        ],\n        \"url\": \"/api/v1/menu-items/019d2051-2119-7ead-81f6-5faf37748094\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[404] Not Found",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d2051-2119-7ead-81f6-5faf37748094"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "158"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:08:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"statusCode\": 404,\n        \"status\": \"Not Found\",\n        \"message\": [\n            \"Menu item not found\"\n        ],\n        \"url\": \"/api/v1/menu-items/019d2051-2119-7ead-81f6-5faf37748094\"\n    },\n    \"data\": null\n}"
+            },
+            {
+              "name": "[200] Success",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{bearer_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}:3003/api/v1/menu-items/:menu_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "port": "3003",
+                  "path": [
+                    "api",
+                    "v1",
+                    "menu-items",
+                    ":menu_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "menu_id",
+                      "value": "019d2065-ebc2-7ea1-a6d5-81d05a656fb8"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "img-src 'self' data: apollo-server-landing-page.cdn.apollographql.com;script-src 'self' https: 'unsafe-inline';manifest-src 'self' apollo-server-landing-page.cdn.apollographql.com;frame-src 'self' sandbox.embed.apollographql.com;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "content-length",
+                  "value": "217"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Mar 2026 15:10:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": [],\n        \"url\": \"/api/v1/menu-items/019d2065-ebc2-7ea1-a6d5-81d05a656fb8\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    },\n    \"data\": {\n        \"message\": \"Menu item deleted successfully\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
