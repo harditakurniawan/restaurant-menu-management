@@ -128,7 +128,8 @@ Hungry Hub - API Doc.postman_collection.json
 
 By default, the application runs on:
 
-http://127.0.0.1:3003
+local  : http://127.0.0.1:4000
+vps    : http://38.242.193.144:4000
 
 ------------------------------------------------------------------------
 
