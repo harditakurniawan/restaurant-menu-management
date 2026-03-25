@@ -5,5 +5,25 @@
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
-  }
+  },
+  "moduleNameMapper": {
+    "^@3rd-party/(.*)$": "<rootDir>/../src/3rd-party/$1",
+    "^@core-abstraction/(.*)$": "<rootDir>/../src/core/abstraction/$1",
+    "^@core-base-dto/(.*)$": "<rootDir>/../src/core/base-dto/$1",
+    "^@core-config/(.*)$": "<rootDir>/../src/core/config/$1",
+    "^@core-constraint/(.*)$": "<rootDir>/../src/core/constraint/$1",
+    "^@core-decorators/(.*)$": "<rootDir>/../src/core/decorators/$1",
+    "^@core-enum/(.*)$": "<rootDir>/../src/core/enum/$1",
+    "^@core-guards/(.*)$": "<rootDir>/../src/core/guards/$1",
+    "^@core-interceptors/(.*)$": "<rootDir>/../src/core/interceptors/$1",
+    "^@core-interface/(.*)$": "<rootDir>/../src/core/interface/$1",
+    "^@core-logging/(.*)$": "<rootDir>/../src/core/logging/$1",
+    "^@core-middleware/(.*)$": "<rootDir>/../src/core/middleware/$1",
+    "^@core-transformers/(.*)$": "<rootDir>/../src/core/transformers/$1",
+    "^@database/(.*)$": "<rootDir>/../src/database/$1",
+    "^@utils/(.*)$": "<rootDir>/../src/utils/$1",
+    "^@authentication/(.*)$": "<rootDir>/../src/authentication/$1",
+    "^src/(.*)$": "<rootDir>/../src/$1"
+  },
+  "setupFiles": ["dotenv/config"]
 }
