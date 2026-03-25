@@ -112,7 +112,7 @@ docker exec -it <container_name> tail -f /app/logs/main.log
 
 ## 🔹 Swagger
 
-http://127.0.0.1:3003/swagger
+http://127.0.0.1:4000/swagger
 
 ------------------------------------------------------------------------
 
